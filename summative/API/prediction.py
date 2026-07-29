@@ -34,16 +34,24 @@ def load_model():
     return joblib.load(MODEL_PATH)
 
 
-def build_feature_frame(payload: dict[str, Any]) -> pd.DataFrame:
+def normalize_payload(payload: dict[str, Any]) -> dict[str, Any]:
+    if not isinstance(payload, dict):
+        raise TypeError('Payload must be a dictionary of feature values')
+
     missing = [feature for feature in FEATURE_COLUMNS if feature not in payload]
     if missing:
         raise KeyError(missing[0])
 
-    row = {feature: payload[feature] for feature in FEATURE_COLUMNS}
+    normalized_payload = {feature: payload[feature] for feature in FEATURE_COLUMNS}
     for feature in NUMERIC_FEATURES:
-        row[feature] = float(row[feature])
+        normalized_payload[feature] = float(normalized_payload[feature])
 
-    return pd.DataFrame([row])
+    return normalized_payload
+
+
+def build_feature_frame(payload: dict[str, Any]) -> pd.DataFrame:
+    normalized_payload = normalize_payload(payload)
+    return pd.DataFrame([normalized_payload], columns=FEATURE_COLUMNS)
 
 
 def predict_wait_time(payload: dict[str, Any]) -> float:

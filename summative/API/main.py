@@ -20,6 +20,10 @@ def predict(payload: dict[str, Any]) -> dict[str, Any]:
         raise HTTPException(status_code=500, detail=str(exc)) from exc
     except KeyError as exc:
         raise HTTPException(status_code=422, detail=f'Missing required field: {exc}') from exc
+    except TypeError as exc:
+        raise HTTPException(status_code=422, detail=str(exc)) from exc
+    except ValueError as exc:
+        raise HTTPException(status_code=422, detail=str(exc)) from exc
 
     return {
         'prediction_minutes': round(prediction, 2),
