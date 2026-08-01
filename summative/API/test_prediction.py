@@ -17,9 +17,6 @@ def sample_payload():
         'Nurse-to-Patient Ratio': 2.4,
         'Specialist Availability': 1,
         'Facility Size (Beds)': 300,
-        'Time to Registration (min)': 10,
-        'Time to Triage (min)': 5,
-        'Time to Medical Professional (min)': 20,
         'Patient Satisfaction': 4,
     }
 
@@ -36,9 +33,6 @@ def test_build_feature_frame_contains_expected_columns(sample_payload):
         'Nurse-to-Patient Ratio',
         'Specialist Availability',
         'Facility Size (Beds)',
-        'Time to Registration (min)',
-        'Time to Triage (min)',
-        'Time to Medical Professional (min)',
         'Patient Satisfaction',
     ]
 
