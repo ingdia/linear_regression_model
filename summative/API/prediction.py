@@ -16,9 +16,6 @@ NUMERIC_FEATURES = [
     'Nurse-to-Patient Ratio',
     'Specialist Availability',
     'Facility Size (Beds)',
-    'Time to Registration (min)',
-    'Time to Triage (min)',
-    'Time to Medical Professional (min)',
     'Patient Satisfaction',
 ]
 FEATURE_COLUMNS = CATEGORICAL_FEATURES + NUMERIC_FEATURES
