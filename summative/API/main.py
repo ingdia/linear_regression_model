@@ -25,7 +25,7 @@ app.add_middleware(
         'http://localhost:8000',
         'http://127.0.0.1:8000',
         'http://localhost:5173',
-        # Add your deployed Flutter web or proxy origin here when available
+        'https://er-wait-time-api.onrender.com',
     ],
     allow_credentials=True,
     allow_methods=['GET', 'POST', 'OPTIONS'],

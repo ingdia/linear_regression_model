@@ -10,7 +10,7 @@ import 'package:http/http.dart' as http;
 // - Chrome/web, Windows desktop, iOS simulator: use http://127.0.0.1:<port>/predict
 // Swap to your Render URL (…/predict) once deployed.
 // ---------------------------------------------------------------------------
-const String kApiUrl = 'http://127.0.0.1:8002/predict';
+const String kApiUrl = 'https://er-wait-time-api.onrender.com/predict';
 
 // Palette — clean light theme, single accent color.
 const Color kBg = Color(0xFFFAFAFA);

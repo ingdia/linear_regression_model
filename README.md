@@ -35,7 +35,7 @@ linear_regression_model/
 
 ## API
 
-- **Public Swagger UI:** `TODO — add your deployed Render URL here, e.g. https://er-wait-time-api.onrender.com/docs`
+- **Public Swagger UI:** https://er-wait-time-api.onrender.com/docs
 - **Predict endpoint:** `POST {base_url}/predict`
 - **Retrain endpoint:** `POST {base_url}/retrain` (multipart CSV upload, retrains and overwrites the saved model)
 - CORS, request/response schema, and range constraints are documented in
