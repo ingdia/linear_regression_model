@@ -17,16 +17,16 @@ from .prediction import FEATURE_COLUMNS, predict_wait_time, MODEL_PATH, CATEGORI
 
 app = FastAPI(title='ER Wait Time Prediction API', version='0.1.0')
 
-# CORS configuration: allow localhost for development and the deployed app origin.
-# Reasoning: restrict origins to known hosts to avoid arbitrary cross-origin requests.
+# CORS configuration: allow localhost (any port) for development, and deployed app origin.
+# Reasoning: localhost is trusted for development; Render origin is production.
+# In production, restrict to only the deployed frontend origin.
+def is_localhost(origin: str) -> bool:
+    return origin.startswith('http://localhost') or origin.startswith('http://127.0.0.1')
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        'http://localhost:8000',
-        'http://127.0.0.1:8000',
-        'http://localhost:5173',
-        'https://er-wait-time-api.onrender.com',
-    ],
+    allow_origin_regex=r'http://(localhost|127\.0\.0\.1).*',
+    allow_origins=['https://er-wait-time-api.onrender.com'],
     allow_credentials=True,
     allow_methods=['GET', 'POST', 'OPTIONS'],
     allow_headers=['Content-Type', 'Authorization', 'Accept'],
