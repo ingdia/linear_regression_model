@@ -1,5 +1,6 @@
 # ER Wait-Time Prediction — Linear Regression & Machine Learning Summative
 
+![Uploading image.png…]()
 
  **YouTube Video Demonstration (7 Minutes):** [https://youtu.be/Y1JEWzF3bZ0](https://youtu.be/Y1JEWzF3bZ0)
 
